@@ -22,7 +22,7 @@ export default function RegisterScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      alert('Password and confirm password are not match');
+      alert('Паролі не співпадають');
     } else {
       dispatch(register(name, email, password));
     }
@@ -36,46 +36,46 @@ export default function RegisterScreen(props) {
     <div>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Create Account</h1>
+          <h1>Створити аккаунт</h1>
         </div>
         {loading && <LoadingBox></LoadingBox>}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Ім'я</label>
           <input
             type="text"
             id="name"
-            placeholder="Enter name"
+            placeholder="Введіт ім'я"
             required
             onChange={(e) => setName(e.target.value)}
           ></input>
         </div>
         <div>
-          <label htmlFor="email">Email address</label>
+          <label htmlFor="email">Ел. адреса</label>
           <input
             type="email"
             id="email"
-            placeholder="Enter email"
+            placeholder="Введіть e-mail"
             required
             onChange={(e) => setEmail(e.target.value)}
           ></input>
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Пароль</label>
           <input
             type="password"
             id="password"
-            placeholder="Enter password"
+            placeholder="Введіть пароль"
             required
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
         <div>
-          <label htmlFor="confirmPassword">Confirm Password</label>
+          <label htmlFor="confirmPassword">Підтвердити пароль</label>
           <input
             type="password"
             id="confirmPassword"
-            placeholder="Enter confirm password"
+            placeholder="Введіть пароль ще раз"
             required
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></input>
@@ -83,14 +83,14 @@ export default function RegisterScreen(props) {
         <div>
           <label />
           <button className="primary" type="submit">
-            Register
+            Зареєструватись
           </button>
         </div>
         <div>
           <label />
           <div>
-            Already have an account?{' '}
-            <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>
+            Уже маєте акаунт?{' '}
+            <Link to={`/signin?redirect=${redirect}`}>Увійти</Link>
           </div>
         </div>
       </form>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, image } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import { signout } from './actions/userActions';
@@ -65,7 +65,7 @@ function App() {
               <i className="fa fa-bars"></i>
             </button>
             <Link className="brand" to="/">
-              amazona
+              leosmart
             </Link>
           </div>
           <div>
@@ -76,79 +76,75 @@ function App() {
             ></Route>
           </div>
           <div>
-            <Link to="/cart">
-              Cart
-              {cartItems.length > 0 && (
-                <span className="badge">{cartItems.length}</span>
+          <Link to="cart.html">Корзина
+              {cartItems.leight > 0 && (
+                <span className="badge">{cartItems.leight}</span>
               )}
             </Link>
             {userInfo ? (
               <div className="dropdown">
                 <Link to="#">
-                  {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
+                  {userInfo.name} <i className="fa fa-caret-down"></i> 
                 </Link>
+                <ul className="dropdown">
+                  <li>
+                    <Link to="/profile">Профіль</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderhistory">Історія замовлень</Link>
+                  </li>
+                </ul>
                 <ul className="dropdown-content">
-                  <li>
-                    <Link to="/profile">User Profile</Link>
-                  </li>
-                  <li>
-                    <Link to="/orderhistory">Order History</Link>
-                  </li>
-                  <li>
-                    <Link to="#signout" onClick={signoutHandler}>
-                      Sign Out
-                    </Link>
-                  </li>
+                  <Link to="#signout" onClick={signoutHandler}>
+                    Вийти
+                  </Link>
                 </ul>
               </div>
             ) : (
-              <Link to="/signin">Sign In</Link>
+              <Link to="/signin">Вхід</Link>
             )}
             {userInfo && userInfo.isSeller && (
               <div className="dropdown">
                 <Link to="#admin">
-                  Seller <i className="fa fa-caret-down"></i>
+                  Додані товари <i className="fa fa-caret-down"></i>
                 </Link>
                 <ul className="dropdown-content">
                   <li>
-                    <Link to="/productlist/seller">Products</Link>
+                    <Link to="/productlist/seller">Товари</Link>
                   </li>
                   <li>
-                    <Link to="/orderlist/seller">Orders</Link>
+                    <Link to="/orderlist/seller">Замовлення</Link>
                   </li>
                 </ul>
               </div>
             )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
-                <Link to="#admin">
-                  Admin <i className="fa fa-caret-down"></i>
-                </Link>
-                <ul className="dropdown-content">
-                  <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                  </li>
-                  <li>
-                    <Link to="/productlist">Products</Link>
-                  </li>
-                  <li>
-                    <Link to="/orderlist">Orders</Link>
-                  </li>
-                  <li>
-                    <Link to="/userlist">Users</Link>
-                  </li>
-                  <li>
-                    <Link to="/support">Support</Link>
-                  </li>
-                </ul>
-              </div>
+              <Link to="#admin">
+                Адмін {' '} <i className="fa fa-caret-down"></i>
+              </Link>
+              <ul className="dropdown-content">
+                <li>
+                  <Link to="/dashbord">Панель інструментів</Link>
+                </li>
+                <li>
+                  <Link to="/productlist">Товари</Link>
+                </li>
+                <li>
+                  <Link to="/oderlist">Замовлення</Link>
+                </li>
+                <li>
+                  <Link to="/userlist">Користувачі</Link>
+                </li>
+              </ul>
+            </div>
             )}
           </div>
         </header>
         <aside className={sidebarIsOpen ? 'open' : ''}>
           <ul className="categories">
             <li>
-              <strong>Categories</strong>
+              <strong>Категорії</strong>
               <button
                 onClick={() => setSidebarIsOpen(false)}
                 className="close-sidebar"
@@ -254,9 +250,25 @@ function App() {
 
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
-        <footer className="row center">
-          {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div>All right reserved</div>{' '}
+        <footer>
+                <div className="email">
+                  E-mail: <br />
+                  maxsviat@gmail.com
+                </div>
+
+          <div className="inform">
+            Наші контакти: 
+            <div className="phons">
+              +380731100792 <br />
+              +380686949429
+            </div>
+          
+          </div>
+          <div className="right">
+               © 2021 Leosmart 
+               All rigts reserved.
+          </div>
+        
         </footer>
       </div>
     </BrowserRouter>

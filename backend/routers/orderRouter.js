@@ -38,7 +38,7 @@ orderRouter.get(
         $group: {
           _id: null,
           numOrders: { $sum: 1 },
-          totalSales: { $sum: '$totalPrice' },
+          totalSales: { $sum: 'грн totalPrice' },
         },
       },
     ]);
@@ -55,7 +55,7 @@ orderRouter.get(
         $group: {
           _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } },
           orders: { $sum: 1 },
-          sales: { $sum: '$totalPrice' },
+          sales: { $sum: 'Грн totalPrice' },
         },
       },
       { $sort: { _id: 1 } },
@@ -63,7 +63,7 @@ orderRouter.get(
     const productCategories = await Product.aggregate([
       {
         $group: {
-          _id: '$category',
+          _id: 'грн category',
           count: { $sum: 1 },
         },
       },
@@ -86,7 +86,7 @@ orderRouter.post(
   isAuth,
   expressAsyncHandler(async (req, res) => {
     if (req.body.orderItems.length === 0) {
-      res.status(400).send({ message: 'Cart is empty' });
+      res.status(400).send({ message: 'Кошик порожній' });
     } else {
       const order = new Order({
         seller: req.body.orderItems[0].seller,
@@ -142,7 +142,7 @@ orderRouter.put(
         .messages()
         .send(
           {
-            from: 'Amazona <amazona@mg.yourdomain.com>',
+            from: 'Leosmart <leosmart@mg.yourdomain.com>',
             to: `${order.user.name} <${order.user.email}>`,
             subject: `New order ${order._id}`,
             html: payOrderEmailTemplate(order),

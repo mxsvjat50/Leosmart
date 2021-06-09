@@ -34,7 +34,7 @@ export default function ShippingAddressScreen(props) {
     let moveOn = true;
     if (!newLat || !newLng) {
       moveOn = window.confirm(
-        'You did not set your location on map. Continue?'
+        'Ви не визначили свою локацію на карті. Продовжити?'
       );
     }
     if (moveOn) {
@@ -71,58 +71,58 @@ export default function ShippingAddressScreen(props) {
       <CheckoutSteps step1 step2></CheckoutSteps>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Shipping Address</h1>
+          <h1>Адреса Доставки</h1>
         </div>
         <div>
-          <label htmlFor="fullName">Full Name</label>
+          <label htmlFor="fullName">Ім'я та Прізвище</label>
           <input
             type="text"
             id="fullName"
-            placeholder="Enter full name"
+            placeholder="Введіть Ім'я та Прізвище"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             required
           ></input>
         </div>
         <div>
-          <label htmlFor="address">Address</label>
+          <label htmlFor="address">Адреса</label>
           <input
             type="text"
             id="address"
-            placeholder="Enter address"
+            placeholder="Введіть адресу"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
           ></input>
         </div>
         <div>
-          <label htmlFor="city">City</label>
+          <label htmlFor="city">Місто</label>
           <input
             type="text"
             id="city"
-            placeholder="Enter city"
+            placeholder="Введіть місто"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             required
           ></input>
         </div>
         <div>
-          <label htmlFor="postalCode">Postal Code</label>
+          <label htmlFor="postalCode">Код поштової скриньки</label>
           <input
             type="text"
             id="postalCode"
-            placeholder="Enter postal code"
+            placeholder="Введіь код скриньки"
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
             required
           ></input>
         </div>
         <div>
-          <label htmlFor="country">Country</label>
+          <label htmlFor="country">Країна</label>
           <input
             type="text"
             id="country"
-            placeholder="Enter country"
+            placeholder="Введіть країну"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
             required
@@ -131,13 +131,13 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label htmlFor="chooseOnMap">Location</label>
           <button type="button" onClick={chooseOnMap}>
-            Choose On Map
+            Виберіть на карті
           </button>
         </div>
         <div>
           <label />
           <button className="primary" type="submit">
-            Continue
+            Продовжити
           </button>
         </div>
       </form>

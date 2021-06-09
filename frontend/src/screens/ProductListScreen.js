@@ -70,9 +70,9 @@ export default function ProductListScreen(props) {
   return (
     <div>
       <div className="row">
-        <h1>Products</h1>
+        <h1>Товари</h1>
         <button type="button" className="primary" onClick={createHandler}>
-          Create Product
+          Додати Товар
         </button>
       </div>
 
@@ -91,11 +91,11 @@ export default function ProductListScreen(props) {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>NAME</th>
-                <th>PRICE</th>
-                <th>CATEGORY</th>
-                <th>BRAND</th>
-                <th>ACTIONS</th>
+                <th>Назва</th>
+                <th>Ціна</th>
+                <th>Категорія</th>
+                <th>Бренд</th>
+                <th>Дії</th>
               </tr>
             </thead>
             <tbody>
@@ -114,14 +114,14 @@ export default function ProductListScreen(props) {
                         props.history.push(`/product/${product._id}/edit`)
                       }
                     >
-                      Edit
+                      Редаг.
                     </button>
                     <button
                       type="button"
                       className="small"
                       onClick={() => deleteHandler(product)}
                     >
-                      Delete
+                      Видал.
                     </button>
                   </td>
                 </tr>

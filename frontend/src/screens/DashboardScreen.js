@@ -15,7 +15,7 @@ export default function DashboardScreen() {
   return (
     <div>
       <div className="row">
-        <h1>Dashboard</h1>
+        <h1>Панель інструментів</h1>
       </div>
       {loading ? (
         <LoadingBox />
@@ -35,7 +35,7 @@ export default function DashboardScreen() {
             <li>
               <div className="summary-title color2">
                 <span>
-                  <i className="fa fa-shopping-cart" /> Orders
+                  <i className="fa fa-shopping-cart" /> Замовлення
                 </span>
               </div>
               <div className="summary-body">

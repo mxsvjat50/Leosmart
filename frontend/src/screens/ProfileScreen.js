@@ -43,7 +43,7 @@ export default function ProfileScreen() {
     e.preventDefault();
     // dispatch update profile
     if (password !== confirmPassword) {
-      alert('Password and Confirm Password Are Not Matched');
+      alert('Пароль і підтвердження паролю не збігаються');
     } else {
       dispatch(
         updateUserProfile({
@@ -62,7 +62,7 @@ export default function ProfileScreen() {
     <div>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>User Profile</h1>
+          <h1>Профіль користувача</h1>
         </div>
         {loading ? (
           <LoadingBox></LoadingBox>
@@ -76,11 +76,11 @@ export default function ProfileScreen() {
             )}
             {successUpdate && (
               <MessageBox variant="success">
-                Profile Updated Successfully
+                Профіль успішно оновлено
               </MessageBox>
             )}
             <div>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">Ім'я</label>
               <input
                 id="name"
                 type="text"
@@ -90,7 +90,7 @@ export default function ProfileScreen() {
               ></input>
             </div>
             <div>
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">Ел. адреса</label>
               <input
                 id="email"
                 type="email"
@@ -100,7 +100,7 @@ export default function ProfileScreen() {
               ></input>
             </div>
             <div>
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Пароль</label>
               <input
                 id="password"
                 type="password"
@@ -109,7 +109,7 @@ export default function ProfileScreen() {
               ></input>
             </div>
             <div>
-              <label htmlFor="confirmPassword">confirm Password</label>
+              <label htmlFor="confirmPassword">підтвердження паролю</label>
               <input
                 id="confirmPassword"
                 type="password"
@@ -119,9 +119,9 @@ export default function ProfileScreen() {
             </div>
             {user.isSeller && (
               <>
-                <h2>Seller</h2>
+                <h2>Продавець</h2>
                 <div>
-                  <label htmlFor="sellerName">Seller Name</label>
+                  <label htmlFor="sellerName">Ім'я продавця</label>
                   <input
                     id="sellerName"
                     type="text"
@@ -131,7 +131,7 @@ export default function ProfileScreen() {
                   ></input>
                 </div>
                 <div>
-                  <label htmlFor="sellerLogo">Seller Logo</label>
+                  <label htmlFor="sellerLogo">Логотип продавця</label>
                   <input
                     id="sellerLogo"
                     type="text"
@@ -141,7 +141,7 @@ export default function ProfileScreen() {
                   ></input>
                 </div>
                 <div>
-                  <label htmlFor="sellerDescription">Seller Description</label>
+                  <label htmlFor="sellerDescription">Опис продавця</label>
                   <input
                     id="sellerDescription"
                     type="text"
@@ -155,7 +155,7 @@ export default function ProfileScreen() {
             <div>
               <label />
               <button className="primary" type="submit">
-                Update
+                Оновити
               </button>
             </div>
           </>
